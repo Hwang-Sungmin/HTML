@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('jquery/', include('jQuery.urls')),
     path('dom/', include('DOM.urls')),
+    path('restapi/', include('RestApi.urls')),
 ]
