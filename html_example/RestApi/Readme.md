@@ -34,3 +34,20 @@
 
 ####  Modeld을 만들어 값을 저장 그리고 다른 html에 페이지에 보내기
 
+ -  post 방식일때는 csrftoken 은 사용해야 한다.
+
+    > ~~~~html
+    > <body>
+    >     <div class="container">
+    >         <form method="post" action="{% url 'restapi:getR' %}">
+    >             <input type="text" name="name" placeholder="Enter id here">
+    >             <input type="text" name="tel" placeholder="Enter telephone# here">
+    >             <input type="submit" value="Submit">
+    >             <input name="csrfmiddlewaretoken" value={{csrf_token}}>
+    >         </form>
+    >     </div>
+    > </body>
+    > ~~~~
+
+    ​
+
