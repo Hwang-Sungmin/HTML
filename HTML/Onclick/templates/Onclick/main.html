@@ -1,11 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
     <title>Onclick_Example</title>
 </head>
+
 <body>
-    온클릭 여기서
+    <div id="search">
+        <input type="text" id="searchword" placeholder="값 입력">
+        <input type="hidden" name="csrfmiddlewaretoken" value={{csrf_token}}>
+        <input type="button" value="누르시오" onclick="find();">
+    </div>
+    <br>
+    <div id="result">
+        여기에 출력되야하는데..
+        {{a}}
+        {{b}}
+        {{c}}
+    </div>
+
+    <!-- jquery -->
+    <script>
+        function find(){
+            var data = $('#searchword').val();
+            $.ajax({
+                type : 'POST',
+                url : '{% url "onclick:find" %}',
+                data:{
+                    input : data,
+                    csrfmiddlewaretoken: '{{csrf_token}}'
+                }
+            })
+        }
+    </script>
+
 </body>
+
+
 </html>

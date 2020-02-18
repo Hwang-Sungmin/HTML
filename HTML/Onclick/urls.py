@@ -5,6 +5,7 @@ app_name = 'onclick'
 
 urlpatterns = [
     path('', views_onclick.index, name="index"),
+    path('find/', views_onclick.find, name="find"),
     
    
 ]
